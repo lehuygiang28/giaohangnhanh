@@ -2,7 +2,11 @@
     "name": "giaohangnhanh",
     "version": "0.0.1",
     "description": "An open-source nodejs library to support shipping managements with giaohangnhanh (ghn.vn)",
-    "main": "index.js",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "files": [
+        "lib"
+    ],
     "scripts": {
         "prepare": "npm run build",
         "build": "rimraf ./lib && tsc"
