@@ -27,11 +27,14 @@ async function main() {
     const fee = await ghn.calculateFee.calculateShippingFee({
         to_district_id: district.DistrictID,
         to_ward_code: ward.WardCode,
+        service_type_id: service.service_type_id,
+
+        // Thông tin sản phẩm cần vận chuyển
+        // Sau đây chỉ là thông tin mẫu, bạn cần thay đổi thông tin sản phẩm cần vận chuyển
         height: 10,
         weight: 1000,
         length: 10,
         width: 10,
-        service_type_id: service.service_type_id,
     });
 
     console.log(fee);
