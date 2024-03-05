@@ -1,0 +1,32 @@
+{
+    "name": "giaohangnhanh",
+    "version": "0.0.1",
+    "description": "An open-source nodejs library to support shipping managements with giaohangnhanh (ghn.vn)",
+    "main": "index.js",
+    "scripts": {
+        "prepare": "npm run build",
+        "build": "rimraf ./lib && tsc"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lehuygiang28/giaohangnhanh.git"
+    },
+    "keywords": [
+        "ghn",
+        "ghn.vn",
+        "giaohangnhanh"
+    ],
+    "author": "lehuygiang28 <lehuygiang28@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/lehuygiang28/giaohangnhanh/issues"
+    },
+    "homepage": "https://github.com/lehuygiang28/giaohangnhanh#readme",
+    "devDependencies": {
+        "@types/node": "^20.11.24",
+        "rimraf": "^5.0.5",
+        "ts-node": "^10.9.2",
+        "tsc": "^2.0.4",
+        "typescript": "^5.3.3"
+    }
+}
