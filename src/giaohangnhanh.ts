@@ -2,6 +2,7 @@ import { GhnAbstract } from './ghn.abstract';
 import { GhnConfig } from './types';
 import { GhnAddress } from './address';
 import { CalculateFee } from './calculate-fee';
+import { Order } from './order';
 
 /**
  * Đối tượng Ghn chứa các đối tượng con như address, calculateFee
@@ -24,6 +25,13 @@ import { CalculateFee } from './calculate-fee';
  * @see https://api.ghn.vn/home/docs/detail
  */
 export class Ghn extends GhnAbstract {
+    constructor(config: GhnConfig) {
+        super(config);
+        this.address = new GhnAddress(config);
+        this.calculateFee = new CalculateFee(config);
+        this.order = new Order(config);
+    }
+
     /**
      * Đối tượng address để tương tác với API address
      *
@@ -55,9 +63,11 @@ export class Ghn extends GhnAbstract {
      */
     public calculateFee: CalculateFee;
 
-    constructor(config: GhnConfig) {
-        super(config);
-        this.address = new GhnAddress(config);
-        this.calculateFee = new CalculateFee(config);
-    }
+    /**
+     * Đối tượng order để tương tác với API order
+     *
+     * @en
+     * Order instance to interact with order API
+     */
+    public order: Order;
 }

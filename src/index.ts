@@ -5,3 +5,5 @@ export default Ghn;
 
 export * from './types';
 export * from './address';
+export * from './calculate-fee';
+export * from './order';
