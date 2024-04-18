@@ -15,7 +15,7 @@ import { resolveUrl } from '../utils';
  *
  * @example
  * ```ts
- * import { GhnAddress } from 'ghn';
+ * import { GhnAddress } from 'giaohangnhanh/address';
  *
  * const ghn = new GhnAddress({
  *   token: 'YOUR_GHN_TOKEN', // Change to your token

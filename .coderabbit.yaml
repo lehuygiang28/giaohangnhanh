@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+language: "en-US"
+early_access: true
+reviews:
+  request_changes_workflow: true
+  high_level_summary: true
+  poem: false
+  review_status: true
+  collapse_walkthrough: false
+  auto_review:
+    enabled: true
+    ignore_title_keywords:
+      - "[skip review]"
+      - "Automatic PR"
+    drafts: false
+    base_branches:
+      - "main"
+  path_instructions:
+    - path: "**/*.ts"
+      instructions: "Review the TypeScript code of the open-source npm package to ensure it adheres to the Node.js and npm best practices. This includes proper use of modules, exports, and package.json configuration. Also, ensure the code follows the ESLint rules configured in the codebase. Pay attention to the use of dependencies, devDependencies, scripts, and versioning. The code should be well-documented with clear README and examples. Highlight any deviations and suggest appropriate corrections. Contributions should follow the guidelines provided by the package maintainers."
+chat:
+  auto_reply: true

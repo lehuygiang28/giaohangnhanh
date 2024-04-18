@@ -24,9 +24,9 @@ export abstract class GhnAbstract {
         this.globalConfig = config;
     }
 
-    protected fetch(url: string | URL | Request, data?: any) {
+    protected fetch(url: string | URL | Request, data?: any, method?: 'POST' | 'GET') {
         return fetch(url, {
-            method: 'POST',
+            method: method ?? 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 token: this.globalConfig.token,
