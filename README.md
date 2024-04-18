@@ -75,7 +75,7 @@ pnpm add giaohangnhanh
             <td style="text-align:center">✅</td>
         </tr>
         <tr>
-            <td rowspan="3"><code>order</code></td>
+            <td rowspan="4"><code>order</code></td>
             <td><code>calculateExpectedDeliveryTime()</code></td>
             <td>Dự kiến thời gian giao hàng</td>
             <td style="text-align:center">✅</td>
@@ -88,6 +88,11 @@ pnpm add giaohangnhanh
         <tr>
             <td><code>previewOrder()</code></td>
             <td>Xem trước thông tin đơn hàng</td>
+            <td style="text-align:center">✅</td>
+        </tr>
+        <tr>
+            <td><code>createOrder()</code></td>
+            <td>Tạo đơn hàng</td>
             <td style="text-align:center">✅</td>
         </tr>
     </tbody>

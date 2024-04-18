@@ -6,6 +6,8 @@ import {
     PickShiftResponse,
     PreviewOrder,
     PreviewOrderResponse,
+    CreateOrder,
+    CreateOrderResponse,
 } from './types';
 
 /**
@@ -112,5 +114,31 @@ export class Order extends GhnAbstract {
         }
 
         return result.data as PreviewOrderResponse;
+    }
+
+    /**
+     * Tự động gửi thông tin đơn hàng như trọng lượng, địa chỉ, số điện thoại và nhiều hơn nữa đến hệ thống GHN.
+     * GHN sẽ xử lý thông tin này và bắt đầu việc vận chuyển
+     *
+     * @en Automatic send order information such as weight, address, phone number and many more to GHN system.
+     * GHN will process these information and start the shipment
+     *
+     * @param {CreateOrder} payload
+     * @returns {Promise<CreateOrderResponse>}
+     * @see https://api.ghn.vn/home/docs/detail?id=81
+     */
+    public async createOrder(payload: CreateOrder): Promise<CreateOrderResponse> {
+        if (!payload?.service_id && !payload?.service_type_id) {
+            throw new Error(`At least one of 'service_id' or 'service_type_id' must be provided.`);
+        }
+
+        const apiPath = `shiip/public-api/v2/shipping-order/create`;
+        const response = await this.fetch(resolveUrl(this.globalConfig.host, apiPath), payload);
+        const result = (await response.json()) as { data: unknown; message: string };
+        if (!response.ok) {
+            throw new Error(`Failed to get service list: ${result.message}`);
+        }
+
+        return result.data as CreateOrderResponse;
     }
 }
