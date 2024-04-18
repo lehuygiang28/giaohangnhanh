@@ -60,10 +60,7 @@ export class Order extends GhnAbstract {
 
         const apiPath = `shiip/public-api/v2/shipping-order/leadtime`;
 
-        const response = await this.fetch(resolveUrl(this.globalConfig.host, apiPath), {
-            ...payload,
-            from_district_id: payload?.from_district_id,
-        });
+        const response = await this.fetch(resolveUrl(this.globalConfig.host, apiPath), payload);
         const result = (await response.json()) as {
             data: unknown;
             message: string;
