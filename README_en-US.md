@@ -80,6 +80,11 @@ pnpm add giaohangnhanh
             <td>Calculate the expected delivery time</td>
             <td style="text-align:center">✅</td>
         </tr>
+        <tr>
+            <td><code>pickShift()</code></td>
+            <td>Get Pick shift in order</td>
+            <td style="text-align:center">✅</td>
+        </tr>
     </tbody>
 </table>
 

@@ -80,6 +80,11 @@ pnpm add giaohangnhanh
             <td>Dự kiến thời gian giao hàng</td>
             <td style="text-align:center">✅</td>
         </tr>
+        <tr>
+            <td><code>pickShift()</code></td>
+            <td>Danh sách ca lấy đơn hàng</td>
+            <td style="text-align:center">✅</td>
+        </tr>
     </tbody>
 </table>
 

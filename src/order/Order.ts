@@ -4,6 +4,7 @@ import {
     CalculateExpectedDeliveryTime,
     CalculateExpectedDeliveryTimeResponse,
 } from './types/calculate-expected-delivery-time.type';
+import { PickShiftResponse } from './types/pick-shift.type';
 
 /**
  * Đối tượng Order chứa các phương thức để tương tác với API Order
@@ -65,5 +66,25 @@ export class Order extends GhnAbstract {
             throw new Error(`Failed to get service list: ${result.message}`);
         }
         return result.data as CalculateExpectedDeliveryTimeResponse;
+    }
+
+    /**
+     * Lấy danh sách ca lấy hàng
+     *
+     * @en Get Pick shift in order
+     *
+     * @returns {Promise<PickShiftResponse[]>}
+     * @see https://api.ghn.vn/home/docs/detail?id=114
+     */
+    public async pickShift(): Promise<PickShiftResponse[]> {
+        const pickShiftPath = `shiip/public-api/v2/shift/date`;
+
+        const response = await this.fetch(resolveUrl(this.globalConfig.host, pickShiftPath));
+        const result = (await response.json()) as { data: unknown; message: string };
+
+        if (!response.ok) {
+            throw new Error(`Failed to get service list: ${result.message}`);
+        }
+        return result.data as PickShiftResponse[];
     }
 }
