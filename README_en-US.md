@@ -75,7 +75,7 @@ pnpm add giaohangnhanh
             <td style="text-align:center">✅</td>
         </tr>
         <tr>
-            <td rowspan="2"><code>order</code></td>
+            <td rowspan="3"><code>order</code></td>
             <td><code>calculateExpectedDeliveryTime()</code></td>
             <td>Calculate the expected delivery time</td>
             <td style="text-align:center">✅</td>
@@ -83,6 +83,11 @@ pnpm add giaohangnhanh
         <tr>
             <td><code>pickShift()</code></td>
             <td>Get Pick shift in order</td>
+            <td style="text-align:center">✅</td>
+        </tr>
+        <tr>
+            <td><code>previewOrder()</code></td>
+            <td>Helps preview order information without creating an order</td>
             <td style="text-align:center">✅</td>
         </tr>
     </tbody>

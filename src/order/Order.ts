@@ -3,8 +3,10 @@ import { resolveUrl } from '../utils';
 import {
     CalculateExpectedDeliveryTime,
     CalculateExpectedDeliveryTimeResponse,
-} from './types/calculate-expected-delivery-time.type';
-import { PickShiftResponse } from './types/pick-shift.type';
+    PickShiftResponse,
+    PreviewOrder,
+    PreviewOrderResponse,
+} from './types';
 
 /**
  * Đối tượng Order chứa các phương thức để tương tác với API Order
@@ -86,5 +88,29 @@ export class Order extends GhnAbstract {
             throw new Error(`Failed to get service list: ${result.message}`);
         }
         return result.data as PickShiftResponse[];
+    }
+
+    /**
+     * Xem trước thông tin đơn hàng
+     *
+     * @en Helps preview order information without creating an order
+     *
+     * @param {PreviewOrder} payload
+     * @returns {Promise<PreviewOrderResponse>}
+     * @see https://api.ghn.vn/home/docs/detail?id=81
+     */
+    public async previewOrder(payload: PreviewOrder): Promise<PreviewOrderResponse> {
+        if (!payload?.service_id && !payload?.service_type_id) {
+            throw new Error(`At least one of 'service_id' or 'service_type_id' must be provided.`);
+        }
+
+        const apiPath = `shiip/public-api/v2/shipping-order/preview`;
+        const response = await this.fetch(resolveUrl(this.globalConfig.host, apiPath), payload);
+        const result = (await response.json()) as { data: unknown; message: string };
+        if (!response.ok) {
+            throw new Error(`Failed to get service list: ${result.message}`);
+        }
+
+        return result.data as PreviewOrderResponse;
     }
 }
