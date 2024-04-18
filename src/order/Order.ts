@@ -69,7 +69,7 @@ export class Order extends GhnAbstract {
             message: string;
         };
         if (!response.ok) {
-            throw new Error(`Failed to get service list: ${result.message}`);
+            throw new Error(`Failed to calculate expected delivery time: ${result.message}`);
         }
         return result.data as CalculateExpectedDeliveryTimeResponse;
     }
@@ -89,7 +89,7 @@ export class Order extends GhnAbstract {
         const result = (await response.json()) as { data: unknown; message: string };
 
         if (!response.ok) {
-            throw new Error(`Failed to get service list: ${result.message}`);
+            throw new Error(`Failed to get pick shift list: ${result.message}`);
         }
         return result.data as PickShiftResponse[];
     }
@@ -112,7 +112,7 @@ export class Order extends GhnAbstract {
         const response = await this.fetch(resolveUrl(this.globalConfig.host, apiPath), payload);
         const result = (await response.json()) as { data: unknown; message: string };
         if (!response.ok) {
-            throw new Error(`Failed to get service list: ${result.message}`);
+            throw new Error(`Failed to get preview order info: ${result.message}`);
         }
 
         return result.data as PreviewOrderResponse;
@@ -138,7 +138,7 @@ export class Order extends GhnAbstract {
         const response = await this.fetch(resolveUrl(this.globalConfig.host, apiPath), payload);
         const result = (await response.json()) as { data: unknown; message: string };
         if (!response.ok) {
-            throw new Error(`Failed to get service list: ${result.message}`);
+            throw new Error(`Failed to create order: ${result.message}`);
         }
 
         return result.data as CreateOrderResponse;
