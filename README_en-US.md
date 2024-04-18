@@ -75,7 +75,7 @@ pnpm add giaohangnhanh
             <td style="text-align:center">✅</td>
         </tr>
         <tr>
-            <td rowspan="4"><code>order</code></td>
+            <td rowspan="5"><code>order</code></td>
             <td><code>calculateExpectedDeliveryTime()</code></td>
             <td>Calculate the expected delivery time</td>
             <td style="text-align:center">✅</td>
@@ -93,6 +93,11 @@ pnpm add giaohangnhanh
         <tr>
             <td><code>createOrder()</code></td>
             <td>Create order</td>
+            <td style="text-align:center">✅</td>
+        </tr>****
+        <tr>
+            <td><code>orderInfo()</code></td>
+            <td>Get all information of a order</td>
             <td style="text-align:center">✅</td>
         </tr>
     </tbody>

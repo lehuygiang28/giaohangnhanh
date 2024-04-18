@@ -8,6 +8,8 @@ import {
     PreviewOrderResponse,
     CreateOrder,
     CreateOrderResponse,
+    OrderInfo,
+    OrderInfoResponse,
 } from './types';
 
 /**
@@ -140,5 +142,26 @@ export class Order extends GhnAbstract {
         }
 
         return result.data as CreateOrderResponse;
+    }
+
+    /**
+     * Lấy thông tin chi tiết đơn hàng
+     *
+     * @en Help you get all information of a order. You can know current status or the reason which make the shipment failed
+     *
+     * @param param0
+     * @returns
+     * @see https://api.ghn.vn/home/docs/detail?id=66
+     */
+    public async orderInfo({ order_code }: OrderInfo): Promise<OrderInfoResponse> {
+        const apiPath = `shiip/public-api/v2/shipping-order/detail`;
+        const response = await this.fetch(resolveUrl(this.globalConfig.host, apiPath), {
+            order_code,
+        });
+        const result = (await response.json()) as { data: unknown; message: string };
+        if (!response.ok) {
+            throw new Error(`Failed to get order info: ${result.message}`);
+        }
+        return result.data as OrderInfoResponse;
     }
 }

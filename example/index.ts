@@ -149,6 +149,12 @@ async function main() {
         ],
     });
     console.log(order);
+
+    // Thông tin chi tiết đơn hàng
+    const orderInfo = await ghn.order.orderInfo({
+        order_code: order.order_code,
+    });
+    console.log(orderInfo);
 }
 
 main();
