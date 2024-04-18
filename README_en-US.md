@@ -13,7 +13,7 @@
 
 Documentation from Ghn: [https://api.ghn.vn/home/docs/detail](https://api.ghn.vn/home/docs/detail)
 
-## Installation:
+## Installation
 
 Install `giaohangnhanh` with `npm`:
 
@@ -33,9 +33,9 @@ Install `giaohangnhanh` with `pnpm`:
 pnpm add giaohangnhanh
 ```
 
-## Usage:
+## Usage
 
-### Methods:
+### Methods
 
 <table>
     <thead>
@@ -74,16 +74,22 @@ pnpm add giaohangnhanh
             <td>Get the shipping fee and provide to buyer before create shipping order</td>
             <td style="text-align:center">✅</td>
         </tr>
+        <tr>
+            <td rowspan="2"><code>order</code></td>
+            <td><code>calculateExpectedDeliveryTime()</code></td>
+            <td>Calculate the expected delivery time</td>
+            <td style="text-align:center">✅</td>
+        </tr>
     </tbody>
 </table>
 
 _Note:_
 
--   The ✅ icon indicates that the task has been completed.
--   The 📝 icon indicates that the task is todo.
--   The ❗ icon indicates that the task needs help.
+- The ✅ icon indicates that the task has been completed.
+- The 📝 icon indicates that the task is todo.
+- The ❗ icon indicates that the task needs help.
 
-#### Code tham khảo: <a href="https://github.com/lehuygiang28/giaohangnhanh/blob/HEAD/example/index.ts" target="_blank">Bấm vào đây</a>
+#### Sample working code: <a href="https://github.com/lehuygiang28/giaohangnhanh/blob/HEAD/example/index.ts" target="_blank">Click here!</a>
 
 ## Contribution
 

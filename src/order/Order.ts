@@ -17,7 +17,7 @@ import {
  *
  * @example
  * ```ts
- * import { Order } from 'ghn';
+ * import { Order } from 'giaohangnhanh/order';
  *
  * const ghnOrder = new Order({
  *   token: 'YOUR_GHN_TOKEN', // Change to your token
@@ -30,7 +30,18 @@ import {
  *
  */
 export class Order extends GhnAbstract {
-    public async calculateExpectedDeliveryTime(payload: CalculateExpectedDeliveryTime) {
+    /**
+     * Tính thời gian dự kiến giao hàng
+     *
+     * @en Calculate the expected delivery time
+     *
+     * @param {CalculateExpectedDeliveryTime} payload
+     * @returns {Promise<CalculateExpectedDeliveryTimeResponse>}
+     * @see https://api.ghn.vn/home/docs/detail?id=52
+     */
+    public async calculateExpectedDeliveryTime(
+        payload: CalculateExpectedDeliveryTime,
+    ): Promise<CalculateExpectedDeliveryTimeResponse> {
         if (
             (payload.from_district_id && !payload.from_ward_code) ||
             (!payload.from_district_id && payload.from_ward_code)

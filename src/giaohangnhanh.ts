@@ -5,15 +5,15 @@ import { CalculateFee } from './calculate-fee';
 import { Order } from './order';
 
 /**
- * Đối tượng Ghn chứa các đối tượng con như address, calculateFee
+ * Đối tượng Ghn chứa các đối tượng con như address, calculateFee, ...
  *
  * @en
- * Ghn instance contains sub-instances like address, calculateFee
+ * Ghn instance contains sub-instances like address, calculateFee, ...
  *
  * @example
  *
  * ```ts
- * import { Ghn } from 'ghn';
+ * import { Ghn } from 'giaohangnhanh';
  *
  * const ghn = new Ghn({
  *   token: 'YOUR_GHN_TOKEN', // Change to your token

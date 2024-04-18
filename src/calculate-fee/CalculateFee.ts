@@ -14,7 +14,7 @@ import { CalculateShippingFee, CalculateShippingFeeResponse, GetServiceResponse 
  *
  * @example
  * ```ts
- * import { CalculateFee } from 'ghn';
+ * import { CalculateFee } from 'giaohangnhanh/calculate-fee';
  *
  * const ghn = new CalculateFee({
  *   token: 'YOUR_GHN_TOKEN', // Change to your token

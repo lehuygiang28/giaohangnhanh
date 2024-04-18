@@ -13,7 +13,7 @@
 
 Tài liệu từ Ghn: [https://api.ghn.vn/home/docs/detail](https://api.ghn.vn/home/docs/detail)
 
-## Cài đặt:
+## Cài đặt
 
 Cài đặt `giaohangnhanh` với `npm`:
 
@@ -33,7 +33,7 @@ Cài đặt `giaohangnhanh` với `pnpm`:
 pnpm add giaohangnhanh
 ```
 
-## Sử dụng:
+## Sử dụng
 
 #### Các phương thức
 
@@ -74,14 +74,20 @@ pnpm add giaohangnhanh
             <td>Truy vấn phí giao hàng</td>
             <td style="text-align:center">✅</td>
         </tr>
+        <tr>
+            <td rowspan="2"><code>order</code></td>
+            <td><code>calculateExpectedDeliveryTime()</code></td>
+            <td>Dự kiến thời gian giao hàng</td>
+            <td style="text-align:center">✅</td>
+        </tr>
     </tbody>
 </table>
 
 _Ghi chú:_
 
--   Biểu tượng ✅ cho biết công việc đã được hoàn thành.
--   Biểu tượng 📝 cho biết công việc cần được thực hiện.
--   Biểu tượng ❗ cho biết công việc cần sự giúp đỡ.
+- Biểu tượng ✅ cho biết công việc đã được hoàn thành.
+- Biểu tượng 📝 cho biết công việc cần được thực hiện.
+- Biểu tượng ❗ cho biết công việc cần sự giúp đỡ.
 
 #### Code tham khảo: <a href="https://github.com/lehuygiang28/giaohangnhanh/blob/HEAD/example/index.ts" target="_blank">Bấm vào đây</a>
 
