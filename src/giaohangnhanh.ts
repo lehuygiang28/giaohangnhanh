@@ -3,6 +3,7 @@ import { GhnConfig } from './types';
 import { GhnAddress } from './address';
 import { CalculateFee } from './calculate-fee';
 import { Order } from './order';
+import { resolveUrl } from './utils';
 
 /**
  * Đối tượng Ghn chứa các đối tượng con như address, calculateFee, ...
@@ -70,4 +71,21 @@ export class Ghn extends GhnAbstract {
      * Order instance to interact with order API
      */
     public order: Order;
+
+    /**
+     *
+     * @experimental Used for sending a request to GHN that is currently not implemented yet
+     * @param path Path of the API
+     * @param data Object data to send
+     * @returns Response
+     */
+    public async sendRequest(path: string, data: unknown): Promise<unknown> {
+        const response = await this.fetch(resolveUrl(this.globalConfig.host, path), data);
+        const result = (await response.json()) as { data: unknown; message: string };
+
+        if (!response.ok) {
+            throw new Error(`Failed to request '${path}': ${result.message}`);
+        }
+        return result.data;
+    }
 }
