@@ -27,12 +27,34 @@
         "url": "https://github.com/lehuygiang28/giaohangnhanh/issues"
     },
     "homepage": "https://github.com/lehuygiang28/giaohangnhanh#readme",
+    "typesVersions": {
+        "*": {
+            "/": [
+                "lib/index.d.js"
+            ],
+            "index": [
+                "lib/index.d.js"
+            ],
+            "types": [
+                "lib/types/index.d.js"
+            ],
+            "address": [
+                "lib/address/index.d.js"
+            ],
+            "calculate-fee": [
+                "lib/calculate-fee/index.d.js"
+            ],
+            "order": [
+                "lib/order/index.d.js"
+            ]
+        }
+    },
     "devDependencies": {
         "@types/node": "^20.11.24",
         "rimraf": "^5.0.5",
         "ts-node": "^10.9.2",
         "tsc": "^2.0.4",
-        "typescript": "^5.3.3"
+        "typescript": "^5.4.5"
     },
     "packageManager": "yarn@1.22.21+sha1.1959a18351b811cdeedbd484a8f86c3cc3bbaf72"
 }
