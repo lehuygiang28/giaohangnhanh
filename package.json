@@ -1,6 +1,6 @@
 {
     "name": "giaohangnhanh",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "An open-source nodejs library to support shipping managements with giaohangnhanh (ghn.vn)",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
