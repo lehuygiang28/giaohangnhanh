@@ -1,3 +1,7 @@
+import { ApiPath } from './api-path.type';
+
+export type PickShift = {} & ApiPath;
+
 export type PickShiftResponse = {
     /**
      * Shift ID

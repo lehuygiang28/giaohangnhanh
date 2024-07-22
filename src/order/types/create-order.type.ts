@@ -1,5 +1,6 @@
 import { ServiceTypeId } from '../../enums';
 import { PaymentTypeId, RequiredNote } from '../enums';
+import { ApiPath } from './api-path.type';
 import { ItemType, PreviewOrderResponse } from './preview-order.type';
 
 export type CreateOrder = {
@@ -152,6 +153,6 @@ export type CreateOrder = {
      * Content for order
      */
     items: ItemType[];
-};
+} & ApiPath;
 
 export type CreateOrderResponse = PreviewOrderResponse;

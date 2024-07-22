@@ -1,9 +1,12 @@
+import { ApiPath } from "./api-path.type";
+
 export type OrderInfo = {
     /**
      * GHN Order Code. This is tracking code.
      */
     order_code: string;
-};
+} & ApiPath;
+
 export type OrderInfoResponse = {
     _id: string;
     return_name: string;
