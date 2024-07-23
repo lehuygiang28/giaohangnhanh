@@ -3,6 +3,8 @@ import { resolveUrl } from '../utils';
 import {
     CalculateExpectedDeliveryTime,
     CalculateExpectedDeliveryTimeResponse,
+    CancelOrder,
+    CancelOrderResponse,
     PickShift,
     PickShiftResponse,
     PreviewOrder,
@@ -166,5 +168,29 @@ export class Order extends GhnAbstract {
             throw new Error(`Failed to get order info: ${result.message}`);
         }
         return result.data as OrderInfoResponse;
+    }
+
+    /**
+     * Huy đơn hàng
+     *
+     * @en Cancel order
+     *
+     * @param {string[]} orderCodes
+     * @returns
+     * @see https://api.ghn.vn/home/docs/detail?id=73
+     */
+    public async cancelOrder({
+        orderCodes,
+        apiPath = `shiip/public-api/v2/shipping-order/cancel`,
+    }: CancelOrder): Promise<unknown> {
+        const response = await this.fetch(resolveUrl(this.globalConfig.host, apiPath), {
+            order_codes: orderCodes,
+        });
+
+        const result = (await response.json()) as { data: unknown; message: string };
+        if (!response.ok) {
+            throw new Error(`Failed to cancel order: ${result.message}`);
+        }
+        return result.data as CancelOrderResponse;
     }
 }
