@@ -1,4 +1,5 @@
 import { GhnAbstract } from '../ghn.abstract';
+import { GHN_TRACKING_DEV_API_URL } from '../ghn.constant';
 import { resolveUrl } from '../utils';
 import {
     CalculateExpectedDeliveryTime,
@@ -171,7 +172,7 @@ export class Order extends GhnAbstract {
     }
 
     /**
-     * Huy đơn hàng
+     * Hủy đơn hàng
      *
      * @en Cancel order
      *
@@ -189,8 +190,22 @@ export class Order extends GhnAbstract {
 
         const result = (await response.json()) as { data: unknown; message: string };
         if (!response.ok) {
+            console.error(response);
             throw new Error(`Failed to cancel order: ${result.message}`);
         }
         return result.data as CancelOrderResponse;
+    }
+
+    /**
+     * Lấy url theo dõi đơn hàng
+     * @en Get tracking url of an order
+     * @param {string} orderCode Order code of order to get tracking url
+     * @returns {Promise<URL>} Tracking url
+     */
+    public async getTrackingUrl(orderCode: string): Promise<URL> {
+        const url = resolveUrl(this.globalConfig?.trackingHost ?? GHN_TRACKING_DEV_API_URL);
+        url.searchParams.set('order_code', orderCode);
+
+        return url;
     }
 }

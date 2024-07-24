@@ -1,27 +1,28 @@
-import { GHN_DEV_API_URL } from './ghn.constant';
+import { GHN_DEV_API_URL, GHN_TRACKING_DEV_API_URL } from './ghn.constant';
 import { GhnConfig } from './types';
 
 export abstract class GhnAbstract {
     protected globalConfig: GhnConfig;
 
-    constructor(config: GhnConfig) {
-        if (!config.token) {
-            throw new Error('Invalid config, missing token');
+    constructor({
+        host = GHN_DEV_API_URL,
+        trackingHost = GHN_TRACKING_DEV_API_URL,
+        ...config
+    }: GhnConfig) {
+        if (!config?.token) {
+            throw new Error(`Invalid config, missing 'token'`);
         }
 
-        if (!config.shopId) {
-            throw new Error('Invalid config, missing shopId');
+        if (!config?.shopId) {
+            throw new Error(`Invalid config, missing 'shopId'`);
         }
 
-        if (config.testMode) {
-            config.host = GHN_DEV_API_URL;
+        if (config?.testMode) {
+            host = GHN_DEV_API_URL;
+            trackingHost = GHN_TRACKING_DEV_API_URL;
         }
 
-        if (!config?.host) {
-            throw new Error('Invalid config, missing host');
-        }
-
-        this.globalConfig = config;
+        this.globalConfig = { ...config, host, trackingHost };
     }
 
     protected fetch(url: string | URL | Request, data?: any, method?: 'POST' | 'GET') {
