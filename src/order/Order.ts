@@ -182,7 +182,7 @@ export class Order extends GhnAbstract {
      */
     public async cancelOrder({
         orderCodes,
-        apiPath = `shiip/public-api/v2/shipping-order/cancel`,
+        apiPath = `shiip/public-api/v2/switch-status/cancel`,
     }: CancelOrder): Promise<unknown> {
         const response = await this.fetch(resolveUrl(this.globalConfig.host, apiPath), {
             order_codes: orderCodes,
@@ -190,7 +190,6 @@ export class Order extends GhnAbstract {
 
         const result = (await response.json()) as { data: unknown; message: string };
         if (!response.ok) {
-            console.error(response);
             throw new Error(`Failed to cancel order: ${result.message}`);
         }
         return result.data as CancelOrderResponse;
