@@ -50,7 +50,7 @@ async function main() {
     console.log(expected);
 
     // Lấy danh sách ca lấy hãng
-    const shift = await ghn.order.pickShift();
+    const shift = await ghn.order.pickShift({});
     console.log(shift);
 
     // Xem trước đơn hàng
@@ -101,21 +101,21 @@ async function main() {
     // Tạo đơn hang
     const order = await ghn.order.createOrder({
         from_address: '18 Tam Trinh, Mai Động, Hoàng Mai, Hà Nội, Vietnam',
-        from_name: 'giang',
+        from_name: 'lehuygiang',
         from_phone: '0987654322',
         from_province_name: 'Hà Nội',
         from_district_name: 'Hoàng Mai',
         from_ward_name: 'Mai Động',
 
         payment_type_id: 2,
-        note: 'Tintest 123',
+        note: 'lehuygiang 123',
         required_note: 'KHONGCHOXEMHANG',
         return_phone: '0332190458',
         return_address: '39 NTT',
         return_district_id: null,
         return_ward_code: '',
         client_order_code: '',
-        to_name: 'TinTest124',
+        to_name: 'lehuygiang',
         to_phone: '0987654321',
         to_address: '72 Thành Thái, Phường 14, Quận 10, Hồ Chí Minh, Vietnam',
         to_ward_code: '20107',
@@ -155,6 +155,16 @@ async function main() {
         order_code: order.order_code,
     });
     console.log(orderInfo);
+
+    // Lấy tracking url đơn hàng
+    const trackingUrl = await ghn.order.getTrackingUrl(order.order_code);
+    console.log(trackingUrl.toString());
+
+    // Hủy đơn hàng
+    const cancelOrder = await ghn.order.cancelOrder({
+        orderCodes: [order.order_code],
+    });
+    console.log(cancelOrder);
 }
 
 main();
