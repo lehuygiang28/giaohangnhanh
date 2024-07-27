@@ -1,7 +1,7 @@
-import { RequiredNote } from '../enums/preview-order.enum';
-import { ServiceTypeId } from '../../enums/service-type-id.enum';
-import { PaymentTypeId } from '../enums/payment-type.enum';
-import { ApiPath } from './api-path.type';
+import type { RequiredNote } from '../enums/preview-order.enum';
+import type { ServiceTypeId } from '../../enums/service-type-id.enum';
+import type { PaymentTypeId } from '../enums/payment-type.enum';
+import type { ApiPath } from './api-path.type';
 
 export type CategoryType = {
     /**

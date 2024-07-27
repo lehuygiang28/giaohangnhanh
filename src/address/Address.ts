@@ -1,6 +1,6 @@
 import { GhnAbstract } from '../ghn.abstract';
 import { GhnConfig } from '../types';
-import { GhnProvince, GhnDistrict, GhnWard } from './type';
+import type { GhnProvince, GhnDistrict, GhnWard } from './type';
 import { resolveUrl } from '../utils';
 
 /**

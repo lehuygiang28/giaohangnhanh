@@ -1,5 +1,5 @@
 import { GhnAbstract } from './ghn.abstract';
-import { GhnConfig } from './types';
+import type { GhnConfig } from './types';
 import { GhnAddress } from './address';
 import { CalculateFee } from './calculate-fee';
 import { Order } from './order';

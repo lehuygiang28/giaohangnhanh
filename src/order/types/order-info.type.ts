@@ -1,4 +1,4 @@
-import { ApiPath } from './api-path.type';
+import type { ApiPath } from './api-path.type';
 
 export type OrderInfo = {
     /**

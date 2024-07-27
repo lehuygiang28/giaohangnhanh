@@ -1,7 +1,7 @@
 import { GhnAbstract } from '../ghn.abstract';
 import { GHN_TRACKING_DEV_API_URL } from '../ghn.constant';
 import { resolveUrl } from '../utils';
-import {
+import type {
     CalculateExpectedDeliveryTime,
     CalculateExpectedDeliveryTimeResponse,
     CancelOrder,

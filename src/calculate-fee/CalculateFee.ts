@@ -1,6 +1,6 @@
 import { GhnAbstract } from '../ghn.abstract';
 import { resolveUrl } from '../utils';
-import { CalculateShippingFee, CalculateShippingFeeResponse, GetServiceResponse } from './type';
+import type { CalculateShippingFee, CalculateShippingFeeResponse, GetServiceResponse } from './type';
 
 /**
  * Đối tượng CalculateFee chứa các phương thức để tương tác với API calculateFee

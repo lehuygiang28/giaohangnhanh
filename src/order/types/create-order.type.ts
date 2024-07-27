@@ -1,7 +1,7 @@
-import { ServiceTypeId } from '../../enums';
-import { PaymentTypeId, RequiredNote } from '../enums';
-import { ApiPath } from './api-path.type';
-import { ItemType, PreviewOrderResponse } from './preview-order.type';
+import type { ServiceTypeId } from '../../enums';
+import type { PaymentTypeId, RequiredNote } from '../enums';
+import type { ApiPath } from './api-path.type';
+import type { ItemType, PreviewOrderResponse } from './preview-order.type';
 
 export type CreateOrder = {
     /**

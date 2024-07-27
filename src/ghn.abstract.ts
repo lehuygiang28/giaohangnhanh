@@ -1,5 +1,5 @@
 import { GHN_DEV_API_URL, GHN_TRACKING_DEV_API_URL } from './ghn.constant';
-import { GhnConfig } from './types';
+import type { GhnConfig } from './types';
 
 export abstract class GhnAbstract {
     protected globalConfig: GhnConfig;
