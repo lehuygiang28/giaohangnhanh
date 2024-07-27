@@ -30,7 +30,7 @@ yarn add giaohangnhanh
 Cài đặt `giaohangnhanh` với `pnpm`:
 
 ```bash
-pnpm add giaohangnhanh
+pnpm install giaohangnhanh
 ```
 
 ## Sử dụng

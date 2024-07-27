@@ -30,7 +30,7 @@ yarn add giaohangnhanh
 Install `giaohangnhanh` with `pnpm`:
 
 ```bash
-pnpm add giaohangnhanh
+pnpm install giaohangnhanh
 ```
 
 ## Usage
