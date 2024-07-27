@@ -20,7 +20,7 @@ export type CancelOrderResponse = {
 
     /**
      * Thông báo kết quả
-     * 
+     *
      * @type {string}
      */
     message: string;
