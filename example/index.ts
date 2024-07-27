@@ -1,4 +1,5 @@
-import { Ghn } from '../src/index';
+// import { Ghn } from 'giaohangnhanh';
+import { Ghn } from '../src/giaohangnhanh';
 
 async function main() {
     // Khởi tạo đối tượng Ghn
@@ -6,7 +7,8 @@ async function main() {
         token: 'YOUR_GHN_TOKEN', // Thay bằng token của bạn
         shopId: 123456, // Thay bằng shopId của bạn
         host: 'https://dev-online-gateway.ghn.vn',
-        testMode: true, // Bật chế độ test để ghi đè host
+        trackingHost: 'https://tracking.ghn.dev/',
+        testMode: true, // Bật chế độ test sẽ ghi đè tất cả host thành môi trường sandbox
     });
 
     // Lấy tỉnh đầu tiên trong danh sách
@@ -39,7 +41,7 @@ async function main() {
 
     console.log(fee);
 
-    // Tính thời gian dự kiến giao hang
+    // Tính thời gian dự kiến giao hàng
     const expected = await ghn.order.calculateExpectedDeliveryTime({
         service_id: 53320,
         to_district_id: 1538,
@@ -49,7 +51,7 @@ async function main() {
     });
     console.log(expected);
 
-    // Lấy danh sách ca lấy hãng
+    // Lấy danh sách ca lấy hàng
     const shift = await ghn.order.pickShift({});
     console.log(shift);
 
@@ -98,7 +100,7 @@ async function main() {
     });
     console.log(previewOrder);
 
-    // Tạo đơn hang
+    // Tạo đơn hàng
     const order = await ghn.order.createOrder({
         from_address: '18 Tam Trinh, Mai Động, Hoàng Mai, Hà Nội, Vietnam',
         from_name: 'lehuygiang',
