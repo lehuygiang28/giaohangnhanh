@@ -4,23 +4,20 @@
     "description": "An open-source nodejs library to support shipping managements with giaohangnhanh (ghn.vn)",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
-    "files": [
-        "lib"
-    ],
+    "files": ["lib"],
     "scripts": {
         "prepare": "npm run build",
-        "build": "rimraf ./lib && tsc"
+        "build": "rimraf ./lib && tsc",
+        "lint": "npx @biomejs/biome lint .",
+        "lint:fix": "npx @biomejs/biome lint . --write",
+        "format": "npx @biomejs/biome format .",
+        "format:fix": "npx @biomejs/biome format --write ."
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/lehuygiang28/giaohangnhanh.git"
     },
-    "keywords": [
-        "ghn",
-        "ghn.vn",
-        "giaohangnhanh",
-        "giao-hang-nhanh"
-    ],
+    "keywords": ["ghn", "ghn.vn", "giaohangnhanh", "giao-hang-nhanh"],
     "author": "lehuygiang28 <lehuygiang28@gmail.com>",
     "license": "MIT",
     "bugs": {
@@ -29,27 +26,16 @@
     "homepage": "https://github.com/lehuygiang28/giaohangnhanh#readme",
     "typesVersions": {
         "*": {
-            "/": [
-                "lib/index.d.js"
-            ],
-            "index": [
-                "lib/index.d.js"
-            ],
-            "types": [
-                "lib/types/index.d.js"
-            ],
-            "address": [
-                "lib/address/index.d.js"
-            ],
-            "calculate-fee": [
-                "lib/calculate-fee/index.d.js"
-            ],
-            "order": [
-                "lib/order/index.d.js"
-            ]
+            "/": ["lib/index.d.js"],
+            "index": ["lib/index.d.js"],
+            "types": ["lib/types/index.d.js"],
+            "address": ["lib/address/index.d.js"],
+            "calculate-fee": ["lib/calculate-fee/index.d.js"],
+            "order": ["lib/order/index.d.js"]
         }
     },
     "devDependencies": {
+        "@biomejs/biome": "^1.8.3",
         "@types/node": "^20.11.24",
         "rimraf": "^5.0.5",
         "ts-node": "^10.9.2",
