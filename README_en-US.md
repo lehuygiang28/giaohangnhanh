@@ -35,12 +35,26 @@ pnpm add giaohangnhanh
 
 ## Usage
 
+### Initialize
+
+```ts
+import { Ghn } from 'giaohangnhanh';
+
+const ghn = new Ghn({
+    token: 'YOUR_GHN_TOKEN', // Replace with your token
+    shopId: 123456, // Replace with your shopId
+    host: 'https://dev-online-gateway.ghn.vn',
+    trackingHost: 'https://tracking.ghn.dev/',
+    testMode: true, // Enable test mode to override host to sandbox environment
+});
+```
+
 ### Methods
 
 <table>
     <thead>
         <tr>
-            <th>Objects</th>
+            <th>Instances</th>
             <th>Methods</th>
             <th>Description</th>
             <th>Status</th>
@@ -75,7 +89,7 @@ pnpm add giaohangnhanh
             <td style="text-align:center">✅</td>
         </tr>
         <tr>
-            <td rowspan="5"><code>order</code></td>
+            <td rowspan="7"><code>order</code></td>
             <td><code>calculateExpectedDeliveryTime()</code></td>
             <td>Calculate the expected delivery time</td>
             <td style="text-align:center">✅</td>
@@ -94,10 +108,20 @@ pnpm add giaohangnhanh
             <td><code>createOrder()</code></td>
             <td>Create order</td>
             <td style="text-align:center">✅</td>
-        </tr>****
+        </tr>
         <tr>
             <td><code>orderInfo()</code></td>
             <td>Get all information of a order</td>
+            <td style="text-align:center">✅</td>
+        </tr>
+        <tr>
+            <td><code>cancelOrder()</code></td>
+            <td>Cancel order</td>
+            <td style="text-align:center">✅</td>
+        </tr>
+        <tr>
+            <td><code>getTrackingUrl()</code></td>
+            <td>Get tracking url of an order</td>
             <td style="text-align:center">✅</td>
         </tr>
     </tbody>
