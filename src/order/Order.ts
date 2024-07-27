@@ -51,7 +51,7 @@ export class Order extends GhnAbstract {
      * @see https://api.ghn.vn/home/docs/detail?id=52
      */
     public async calculateExpectedDeliveryTime({
-        apiPath = `shiip/public-api/v2/shipping-order/leadtime`,
+        apiPath = 'shiip/public-api/v2/shipping-order/leadtime',
         ...payload
     }: CalculateExpectedDeliveryTime): Promise<CalculateExpectedDeliveryTimeResponse> {
         if (
@@ -83,7 +83,7 @@ export class Order extends GhnAbstract {
      * @see https://api.ghn.vn/home/docs/detail?id=114
      */
     public async pickShift({
-        apiPath = `shiip/public-api/v2/shift/date`,
+        apiPath = 'shiip/public-api/v2/shift/date',
     }: PickShift): Promise<PickShiftResponse[]> {
         const response = await this.fetch(resolveUrl(this.globalConfig.host, apiPath));
         const result = (await response.json()) as { data: unknown; message: string };
@@ -104,7 +104,7 @@ export class Order extends GhnAbstract {
      * @see https://api.ghn.vn/home/docs/detail?id=81
      */
     public async previewOrder({
-        apiPath = `shiip/public-api/v2/shipping-order/preview`,
+        apiPath = 'shiip/public-api/v2/shipping-order/preview',
         ...payload
     }: PreviewOrder): Promise<PreviewOrderResponse> {
         if (!payload?.service_id && !payload?.service_type_id) {
@@ -132,7 +132,7 @@ export class Order extends GhnAbstract {
      * @see https://api.ghn.vn/home/docs/detail?id=81
      */
     public async createOrder({
-        apiPath = `shiip/public-api/v2/shipping-order/create`,
+        apiPath = 'shiip/public-api/v2/shipping-order/create',
         ...payload
     }: CreateOrder): Promise<CreateOrderResponse> {
         if (!payload?.service_id && !payload?.service_type_id) {
@@ -159,7 +159,7 @@ export class Order extends GhnAbstract {
      */
     public async orderInfo({
         order_code,
-        apiPath = `shiip/public-api/v2/shipping-order/detail`,
+        apiPath = 'shiip/public-api/v2/shipping-order/detail',
     }: OrderInfo): Promise<OrderInfoResponse> {
         const response = await this.fetch(resolveUrl(this.globalConfig.host, apiPath), {
             order_code,
@@ -182,7 +182,7 @@ export class Order extends GhnAbstract {
      */
     public async cancelOrder({
         orderCodes,
-        apiPath = `shiip/public-api/v2/switch-status/cancel`,
+        apiPath = 'shiip/public-api/v2/switch-status/cancel',
     }: CancelOrder): Promise<unknown> {
         const response = await this.fetch(resolveUrl(this.globalConfig.host, apiPath), {
             order_codes: orderCodes,
