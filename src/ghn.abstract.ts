@@ -25,7 +25,7 @@ export abstract class GhnAbstract {
         this.globalConfig = { ...config, host, trackingHost };
     }
 
-    protected fetch(url: string | URL | Request, data?: any, method?: 'POST' | 'GET') {
+    protected fetch(url: string | URL | Request, data?: unknown, method?: 'POST' | 'GET') {
         return fetch(url, {
             method: method ?? 'POST',
             headers: {

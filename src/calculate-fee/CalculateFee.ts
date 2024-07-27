@@ -1,6 +1,10 @@
 import { GhnAbstract } from '../ghn.abstract';
 import { resolveUrl } from '../utils';
-import type { CalculateShippingFee, CalculateShippingFeeResponse, GetServiceResponse } from './type';
+import type {
+    CalculateShippingFee,
+    CalculateShippingFeeResponse,
+    GetServiceResponse,
+} from './type';
 
 /**
  * Đối tượng CalculateFee chứa các phương thức để tương tác với API calculateFee
@@ -67,10 +71,13 @@ export class CalculateFee extends GhnAbstract {
             resolveUrl(this.globalConfig.host, calculateFeePath),
             shipData,
         );
-        const result: any = await response.json();
+        const result = (await response.json()) as {
+            data: CalculateShippingFeeResponse;
+            message: string;
+        };
         if (!response.ok) {
             throw new Error(`Failed to calculate shipping fee: ${result.message}`);
         }
-        return result.data as CalculateShippingFeeResponse;
+        return result.data;
     }
 }
